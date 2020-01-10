@@ -30,7 +30,7 @@ describe('todo-files-list', () => {
             filename.push(file_name[file_name.length - 1])
         })
         
-        expect(filename).toEqual(mock_file_names);
+        expect(filename).toEqual(expect.arrayContaining(mock_file_names));
     })
 
     it('should list files containing string "TODO:"', () => {
@@ -52,7 +52,7 @@ describe('todo-files-list', () => {
             filename.push(file_name[file_name.length - 1])
         })
         
-        expect(filename).toEqual(mock_todo_file_names);
+        expect(filename).toEqual(expect.arrayContaining(mock_todo_file_names));
 
         const fs = require("fs")
         content = fs.readFileSync(result[0], 'utf-8') 

@@ -1,7 +1,7 @@
 const fs = require("fs")
 const path = require("path")
 
-const skip_directories = ['node_modules']
+const skip_directories = ['node_modules', '.git']
 const skip_files = ['index.js', 'package-lock.json', 'package.json', 'get_todo_files.js', 'todo-files-list.test.js']
 
 getAllFiles = (dirPath, arrayOfFiles) => {
