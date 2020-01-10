@@ -1,0 +1,17 @@
+{
+  "name": "find-todo-files",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Seenivasan",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
+}
