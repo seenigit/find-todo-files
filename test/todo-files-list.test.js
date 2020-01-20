@@ -13,10 +13,10 @@ const mock_todo_file_names = [
 ]
 
 describe('todo-files-list', () => {
-    it('should list get all files', () => {
+    it('should list all files', () => {
         const result = get_files_service.getAllFiles('.', [])
-        
-        filename = []
+
+        filenames = []
 
         result.forEach(function(file_name) {
             if (file_name.includes('\\')) {
@@ -27,10 +27,10 @@ describe('todo-files-list', () => {
                 file_name = file_name.split('/')
             }
         
-            filename.push(file_name[file_name.length - 1])
+            filenames.push(file_name[file_name.length - 1])
         })
         
-        expect(filename).toEqual(expect.arrayContaining(mock_file_names));
+        expect(filenames).toEqual(expect.arrayContaining(mock_file_names));
     })
 
     it('should list files containing string "TODO:"', () => {
@@ -38,7 +38,7 @@ describe('todo-files-list', () => {
         result = result.split('<br/>')
         result.pop()
 
-        filename = []
+        filenames = []
 
         result.forEach(function(file_name) {
             if (file_name.includes('\\')) {
@@ -49,10 +49,10 @@ describe('todo-files-list', () => {
                 file_name = file_name.split('/')
             }
         
-            filename.push(file_name[file_name.length - 1])
+            filenames.push(file_name[file_name.length - 1])
         })
         
-        expect(filename).toEqual(expect.arrayContaining(mock_todo_file_names));
+        expect(filenames).toEqual(expect.arrayContaining(mock_todo_file_names));
 
         const fs = require("fs")
         content = fs.readFileSync(result[0], 'utf-8') 
