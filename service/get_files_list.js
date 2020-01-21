@@ -12,7 +12,7 @@ getAllFiles = (dirPath, arrayOfFiles) => {
         
         if (file_stat.isDirectory() && !skip_directories.includes(file)) {
             arrayOfFiles = getAllFiles(dirPath + "/" + file, arrayOfFiles)
-        } else if (file_stat.size > 0 && !skip_files.includes(file)){
+        } else if (file_stat.isFile() && file_stat.size > 0 && !skip_files.includes(file)){
             file_name = path.join(__dirname, "../", dirPath, "/", file)
             arrayOfFiles.push(file_name)
         }
